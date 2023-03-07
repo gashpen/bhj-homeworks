@@ -1,7 +1,7 @@
 let time = 86400;
 const countDown = document.getElementById("timer");
 
-setInterval(updateCountDown, 1000);
+let timerInterval = setInterval(updateCountDown, 1000);
 
 function updateCountDown(){
     let hours = Math.floor(time / 3600);
@@ -11,7 +11,8 @@ function updateCountDown(){
         seconds = "0" + seconds
     }
     if(seconds == 00){
-        alert("Вы победиил в конкурсе!")
+        alert("Вы победиил в конкурсе!");
+        clearInterval(timerInterval);
     }
     countDown.textContent = `${hours}:${minutes}:${seconds}`;
     time--
