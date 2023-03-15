@@ -13,7 +13,7 @@ btnRight.addEventListener("click",function (){
 btnLeft.addEventListener("click",function (){
     let index = allSlideArr.findIndex(el => el.classList.contains("slider__item_active"));
     allSlide[index].classList.remove("slider__item_active");
-    let prevSlideIndex = index === allSlide.length + 1 ? 0 : index - 1;
+    let prevSlideIndex = index === 0 ? allSlide.length - 1 : index - 1;
     allSlide[prevSlideIndex].classList.add("slider__item_active");
     
 })
