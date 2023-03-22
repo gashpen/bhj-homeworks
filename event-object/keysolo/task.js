@@ -4,7 +4,7 @@ class Game {
     this.wordElement = container.querySelector('.word');
     this.winsElement = container.querySelector('.status__wins');
     this.lossElement = container.querySelector('.status__loss');
-
+    this.keyOnHandler = this.keyOn.bind(this);
     this.reset();
 
     this.registerEvents();
@@ -15,19 +15,19 @@ class Game {
     this.winsElement.textContent = 0;
     this.lossElement.textContent = 0;
   }
-
-  registerEvents() {
+  
+  keyOn(e){
     let wordSymbol = this.currentSymbol.textContent;
-    function keyOn(e){
-      if(wordSymbol === e.key){
-        this.success();
-      } else{
-        this.fail();
-      }
+    if(wordSymbol === e.key){
+      this.success();
+    } else{
+      this.fail();
     }
-    document.addEventListener("keydown",keyOn);
-    document.addEventListener("keyup", keyOn);
   }
+  registerEvents() {
+    document.addEventListener("keydown",this.keyOnHandler);
+  }
+  
 
   success() {
     if(this.currentSymbol.classList.contains("symbol_current")) this.currentSymbol.classList.remove("symbol_current");
@@ -92,5 +92,6 @@ class Game {
   }
 }
 
-new Game(document.getElementById('game'))
+new Game(document.getElementById('game'));
+
 
