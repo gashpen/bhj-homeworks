@@ -20,7 +20,7 @@ chatWidget.addEventListener("click",()=>{
   })
 
   chatInput.addEventListener("keydown",function(e){
-    if(e.keyCode === 13 && chatInput.value != "") {
+    if(e.keyCode === 13 && chatInput.value != "" && chatInput.value.trim()) {
        messages.innerHTML += `
   <div class="message_client">
     <div class="message__time">${hour+":"+minutes}</div>
