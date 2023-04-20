@@ -20,3 +20,7 @@ body {
 .loader_active {
   display: block;
 }
+
+.item__wrapper{
+  display: flex;
+}
