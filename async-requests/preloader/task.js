@@ -2,7 +2,7 @@ const item = document.querySelector(".item");
 const itemAll = document.querySelectorAll(".item");
 const items = document.querySelector("#items");
 const itemWrapper = document.querySelectorAll("item__wrapper");
-const loader = document.querySelector(".loader ")
+const loader = document.querySelector(".loader ");
 
 let xhrAllCurancy =  new XMLHttpRequest()
 
