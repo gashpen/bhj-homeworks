@@ -24,18 +24,15 @@ const productAdd = document.querySelectorAll(".product__add");
 productAdd.forEach((elem)=>{
     elem.addEventListener("click", () => {
         
-    
         const product = elem.closest(".product");
         const productQuantityValue = product.querySelector(".product__quantity-value").textContent.trim();
-        
-        let cards = elem.closest("body").querySelectorAll(".cart__product");
-        let cartCount = document.querySelector(".cart__product-count")   
-        const productInCard = Array.from(cards).find(el => el.dataset.id);
+        let cards = elem.closest("body").querySelectorAll(".cart__product");                                                                                                                                                                                                                               
+        const productInCard = Array.from(cards).find(el => el.dataset.id === product.dataset.id);
         if(productInCard) {
             console.log(productInCard)
-            cartCount.innerHTML = `
-                ${productQuantityValue}
-            `
+            const countElement = productInCard.querySelector(".cart__product-count");
+            countElement.textContent = Number(countElement.textContent) + Number(productQuantityValue);
+
         } else {
             cart.innerHTML +=`
             <div class="cart__product" data-id="${product.dataset.id}">
